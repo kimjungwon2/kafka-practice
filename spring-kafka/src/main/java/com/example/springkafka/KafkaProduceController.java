@@ -16,4 +16,11 @@ public class KafkaProduceController {
 
         return "published a message :"+message;
     }
+
+    @RequestMapping("/publish2")
+    public String publishWithCallback(String message){
+        kafkaProduceService.sendWithCallback(message);
+
+        return "published a message with callback :"+message;
+    }
 }
