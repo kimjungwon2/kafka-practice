@@ -13,6 +13,14 @@ public class KafkaProduceService {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
+    @Autowired
+    private KafkaTemplate<String, MyMessage> newKafkaTemplate;
+
+
+    public void sendJson(MyMessage message){
+        newKafkaTemplate.send(TOPIC_NAME,message);
+    }
+
     private static final String TOPIC_NAME = "topic5";
 
     public void send(String message){

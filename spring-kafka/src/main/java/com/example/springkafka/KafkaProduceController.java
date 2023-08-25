@@ -23,4 +23,11 @@ public class KafkaProduceController {
 
         return "published a message with callback :"+message;
     }
+
+    @RequestMapping("/publish3")
+    public String publishJson(MyMessage message){
+        kafkaProduceService.sendJson(message);
+
+        return "published a message with callback :"+message.getName()+","+message.getMessage();
+    }
 }
